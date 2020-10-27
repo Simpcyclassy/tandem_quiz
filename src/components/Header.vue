@@ -5,7 +5,7 @@
           alt="Tandem Logo"
           class="shrink mr-2"
           contain
-          src="../assets/logo.png"
+          src="../assets/images/logo.png"
           transition="scale-transition"
           width="170"
         />

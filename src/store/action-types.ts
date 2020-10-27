@@ -1,0 +1,4 @@
+export enum ActionTypes {
+    GET_CORRECT_ANSWER_COUNT = 'GET_CORRECT_ANSWER_COUNT',
+    RESET_COUNT = 'RESET_COUNT'
+}

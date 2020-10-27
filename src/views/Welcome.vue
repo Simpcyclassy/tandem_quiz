@@ -2,9 +2,16 @@
   <v-container class="welcome-container">
     <v-row align="center" justify="center">
         <v-col class="text-center" cols="12" sm="6">
-            <h1 class="display-2 font-weight-bold mb-3">
-                Welcome to Software Engineer code challenge
-            </h1>
+            <vue-typed-js
+                :strings="[
+                    'Hi! My name is Chioma',
+                    'Welcome to my Software Engineer Code Challenge'
+                ]"
+                :typeSpeed="100"
+                :backSpeed="50"
+            >
+                <h1 class="display-2 font-weight-bold mb-3"><span class="typing"></span></h1>
+            </vue-typed-js>
             <v-btn class="ma-2" rounded color="white" to="/quiz">
                 Click to Start
             </v-btn>

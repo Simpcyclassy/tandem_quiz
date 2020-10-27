@@ -13,7 +13,7 @@ const routes: Array<RouteConfig> = [
     component: Welcome
   },
   {
-    path: '/questions',
+    path: '/quiz',
     name: 'QuestionCard',
     component: QuestionCard
   },
