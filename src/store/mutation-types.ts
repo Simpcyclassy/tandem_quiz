@@ -1,4 +1,4 @@
 export enum MutationTypes {
     SET_CORRECT_ANSWERS = 'SET_CORRECT_ANSWERS',
-    RESET_COUNTER = 'RESET_COUNTER'
+    RESET_STATE = 'RESET_STATE'
 }

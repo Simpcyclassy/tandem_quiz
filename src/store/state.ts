@@ -1,8 +1,9 @@
 import quiz from '../assets/utils/Apprentice_TandemFor400_Data.json'
 
-const quizSet: { question: string; incorrect: string[]; correct: string }[] = []
+export type quizType = { question: string; incorrect: string[]; correct: string }[]
+export const quizSet: quizType = []
 
-for (let n = 1; n <= 5; ++n) {
+for (let n = 1; n <= 10; ++n) {
   const i = Math.floor((Math.random() * (quiz.length)) + 1)
   quizSet.push(quiz[i])
   quiz[i] = quiz[quiz.length - n]
