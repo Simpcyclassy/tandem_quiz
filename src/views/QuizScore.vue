@@ -22,7 +22,7 @@
             <h1 class="display-2 font-weight-bold mb-3">
                 You scored: {{ getCorrectAnswerCount }}/{{ getQuizCount }}
             </h1>
-            <v-btn class="ma-2" rounded color="white" to="/quiz" @click="resetCounter">
+            <v-btn class="ma-2" rounded color="white" to="/quiz" @click="resetState">
                 Play again
             </v-btn>
         </v-col>
@@ -47,7 +47,7 @@ export default Vue.extend({
     ])
   },
   methods: {
-    resetCounter () {
+    resetState () {
       this.$store.commit(MutationTypes.RESET_STATE, 0)
     }
   }

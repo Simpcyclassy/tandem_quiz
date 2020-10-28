@@ -5,7 +5,7 @@
         icon
         to="/"
         id="no-background-hover"
-        @click="resetCounter"
+        @click="resetState"
       >
           <v-img
             alt="Tandem Logo"
@@ -30,7 +30,7 @@ export default Vue.extend({
   data: () => ({
   }),
   methods: {
-    resetCounter () {
+    resetState () {
       this.$store.commit(MutationTypes.RESET_STATE, 0)
     }
   }
