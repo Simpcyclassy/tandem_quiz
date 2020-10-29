@@ -2,7 +2,9 @@
   <v-app :style="{background: $vuetify.theme.themes[theme].background}">
     <v-main>
       <Header />
-      <router-view/>
+      <keep-alive>
+        <router-view/>
+      </keep-alive>
     </v-main>
   </v-app>
 </template>
