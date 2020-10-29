@@ -26,8 +26,5 @@ export const actions: ActionTree<State, State> & Actions = {
         resolve(payload)
       }, 500)
     })
-  },
-  [ActionTypes.RESET_STATE] ({ commit }, payload: number) {
-    commit(MutationTypes.RESET_STATE, payload)
   }
 }

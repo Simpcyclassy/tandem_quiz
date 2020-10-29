@@ -17,7 +17,7 @@
                 rounded
                 color="white"
                 to="/quiz"
-                @click="resetState"
+                @click="resetQuiz"
             >
                 Click to Start
             </v-btn>
@@ -28,14 +28,13 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { MutationTypes } from '@/store/mutation-types'
 
 export default Vue.extend({
   name: 'Welcome',
 
   methods: {
-    resetState () {
-      this.$store.commit(MutationTypes.RESET_STATE, 0)
+    resetQuiz () {
+      window.location.reload()
     }
   }
 })

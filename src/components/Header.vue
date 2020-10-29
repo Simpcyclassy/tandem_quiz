@@ -5,7 +5,6 @@
         icon
         to="/"
         id="no-background-hover"
-        @click="resetState"
       >
           <v-img
             alt="Tandem Logo"
@@ -22,16 +21,9 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { MutationTypes } from '@/store/mutation-types'
 
 export default Vue.extend({
-  name: 'Header',
-
-  methods: {
-    resetState () {
-      this.$store.commit(MutationTypes.RESET_STATE, 0)
-    }
-  }
+  name: 'Header'
 })
 </script>
 

@@ -35,9 +35,9 @@
               class="ma-2"
               rounded color="white"
               to="/quiz"
-              @click="resetState"
+              @click="resetQuiz"
             >
-                Play again
+              Play again
             </v-btn>
         </v-col>
     </v-row>
@@ -47,7 +47,6 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
-import { MutationTypes } from '@/store/mutation-types'
 
 export default Vue.extend({
   name: 'QuizScore',
@@ -60,8 +59,8 @@ export default Vue.extend({
   },
 
   methods: {
-    resetState () {
-      this.$store.dispatch(MutationTypes.RESET_STATE, 0)
+    resetQuiz () {
+      window.location.reload()
     }
   }
 })
