@@ -1,4 +1,52 @@
 <template>
+  <v-row class="header-container">
+    <div class="d-flex">
+      <v-btn
+        icon
+        to="/"
+        id="no-background-hover"
+        @click="resetState"
+      >
+          <v-img
+            alt="Tandem Logo"
+            class="shrink mr-2"
+            contain
+            src="../assets/images/logo.png"
+            transition="scale-transition"
+            width="170"
+          />
+      </v-btn>
+    </div>
+  </v-row>
+</template>
+
+<script lang="ts">
+import Vue from 'vue'
+import { MutationTypes } from '@/store/mutation-types'
+
+export default Vue.extend({
+  name: 'Header',
+
+  data: () => ({
+  }),
+  methods: {
+    resetState () {
+      this.$store.commit(MutationTypes.RESET_STATE, 0)
+    }
+  }
+})
+</script>
+
+<style scoped lang="scss">
+.header-container {
+  margin-top: 40px;
+  margin-left: 150px;
+}
+#no-background-hover::before {
+   background-color: transparent !important;
+}
+</style>
+<template>
   <v-card
     max-width="600"
     class="mx-auto"
@@ -11,7 +59,7 @@
       <v-row class="fill-height">
         <v-card-title class="black--text pl-12">
           <div class="display-1">
-            {{ index + 1 }}. {{ questions }}
+            {{ index + 1 }}. {{ currentQuestion.question }}
           </div>
         </v-card-title>
       </v-row>
@@ -24,8 +72,8 @@
         <v-list-item
           v-for="(answer, i) in answers"
           :key="i"
-          @click.prevent="selectAnswer(index)"
-          :class="answerClass(index)"
+          @click.prevent="selectAnswer(i)"
+          :class="answerClass(i)"
           color="#001229"
         >
           <v-list-item-content class="pl-12">
@@ -83,41 +131,30 @@ export default Vue.extend({
     correctIndex: null,
     shuffledAnswers: [],
     index: 0,
-    numCorrect: 0
+    numCorrect: 0,
+    currentQuestion: {}
   }),
   computed: {
     ...mapGetters([
       'getAllQuiz'
     ]),
+
     answers () {
-      const quiz = this.getAllQuiz[this.index]
-      const answers = [...quiz.incorrect]
-      answers.push(quiz.correct)
+      const answers = [...this.currentQuestion.incorrect]
+      answers.push(this.currentQuestion.correct)
 
       return answers
-    },
-    questions () {
-      const quiz = this.getAllQuiz[this.index]
-      const questions = quiz.question
-      return questions
     }
   },
   methods: {
-    next () {
-      this.index++
-      this.numCorrect++
-    },
-    setCorrectAnswers () {
-      const payload = this.numCorrect
-      this.$store.commit(MutationTypes.SET_CORRECT_ANSWERS, payload)
-    },
-
-    shuffledAnswers () {
-      this.shuffledAnswers = shuffle(this.answers)
-    },
     selectAnswer (i) {
       this.selectedIndex = i
     },
+
+    next () {
+      this.index++
+    },
+
     handleSubmit () {
       let isCorrect = false
 
@@ -129,6 +166,21 @@ export default Vue.extend({
       }
       this.answered = true
     },
+
+    setCorrectAnswers () {
+      const payload = this.numCorrect
+      this.$store.commit(MutationTypes.SET_CORRECT_ANSWERS, payload)
+    },
+
+    shuffleAnswers () {
+      // this.shuffledAnswers = shuffle(this.answers)
+      this.correctIndex = this.answers.indexOf(this.currentQuestion.correct)
+    },
+
+    setCurrentQuestion () {
+      this.currentQuestion = this.getAllQuiz[this.index]
+    },
+
     answerClass (index) {
       let answerClass = ''
 
@@ -145,6 +197,17 @@ export default Vue.extend({
 
       return answerClass
     }
+  },
+  watch: {
+    index: {
+      immediate: true,
+      handler () {
+        this.setCurrentQuestion()
+        this.selectedIndex = null
+        this.answered = false
+        this.shuffleAnswers()
+      }
+    }
   }
 })
 </script>
@@ -158,7 +221,7 @@ export default Vue.extend({
 }
 
 .selected {
-  background-color: #001229;
+  background-color: lightblue;
 }
 
 .correct {
@@ -166,6 +229,6 @@ export default Vue.extend({
 }
 
 .incorrect {
-  background-color: red;
+  background-color: #ff6961;
 }
 </style>

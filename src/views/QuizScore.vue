@@ -50,7 +50,7 @@ export default Vue.extend({
     resetState () {
       this.$store.commit(MutationTypes.RESET_STATE, 0)
     }
-  },
+  }
 })
 </script>
 
