@@ -11,14 +11,17 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
+    "allowJs": true,
+    "noImplicitAny": false,
     "baseUrl": ".",
+    "resolveJsonModule":true,
     "types": [
       "webpack-env",
       "vuetify"
     ],
     "paths": {
       "@/*": [
-        "src/*"
+        "tandem_quiz/src/*"
       ]
     },
     "lib": [
