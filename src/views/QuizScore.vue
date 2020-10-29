@@ -33,7 +33,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
-import { MutationTypes } from '../store/mutation-types'
+import { MutationTypes } from '@/store/mutation-types'
 
 export default Vue.extend({
   name: 'QuizScore',
@@ -50,8 +50,7 @@ export default Vue.extend({
     resetState () {
       this.$store.commit(MutationTypes.RESET_STATE, 0)
     }
-  }
-
+  },
 })
 </script>
 

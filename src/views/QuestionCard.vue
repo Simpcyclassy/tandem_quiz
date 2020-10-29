@@ -11,7 +11,7 @@
       <v-row class="fill-height">
         <v-card-title class="black--text pl-12">
           <div class="display-1">
-            {{ questions }}
+            {{ index + 1 }}. {{ questions }}
           </div>
         </v-card-title>
       </v-row>
@@ -19,12 +19,14 @@
 
     <v-list shaped>
       <v-list-item-group
-        v-model="selectedItem"
         color="primary"
       >
         <v-list-item
           v-for="(answer, i) in answers"
           :key="i"
+          @click.prevent="selectAnswer(index)"
+          :class="answerClass(index)"
+          color="#001229"
         >
           <v-list-item-content class="pl-12">
             <v-list-item-title v-text="answer"></v-list-item-title>
@@ -34,7 +36,14 @@
     </v-list>
     <v-row align="center" justify="center">
       <v-col class="text-center" cols="12" sm="6">
-        <v-btn class="ma-2" rounded color="green" to="/quiz">
+        <v-btn
+          class="ma-2"
+          rounded
+          color="green"
+          to="/quiz"
+          @click="handleSubmit"
+          :disabled="selectedIndex === null || answered"
+        >
           Submit
         </v-btn>
         <v-btn
@@ -42,6 +51,7 @@
           class="ma-2"
           rounded color="secondary"
           to="/score"
+          @click="setCorrectAnswers"
         >
           Finish
         </v-btn>
@@ -49,11 +59,10 @@
           class="ma-2"
           v-else
           rounded
-          color="primary"
           to="/quiz"
           @click="next"
         >
-            Next
+          Next
         </v-btn>
       </v-col>
     </v-row>
@@ -63,14 +72,14 @@
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
 import { shuffle } from 'lodash'
-import { MutationTypes } from '../store/mutation-types'
+import { MutationTypes } from '@/store/mutation-types'
 
 export default Vue.extend({
   name: 'QuizCard',
 
   data: () => ({
     answered: false,
-    answerIndex: null,
+    selectedIndex: null,
     correctIndex: null,
     shuffledAnswers: [],
     index: 0,
@@ -94,14 +103,47 @@ export default Vue.extend({
     }
   },
   methods: {
-    setCorrectAnswers () {
-      this.$store.commit(MutationTypes.SET_CORRECT_ANSWERS, this.numCorrect)
-    },
     next () {
       this.index++
+      this.numCorrect++
     },
+    setCorrectAnswers () {
+      const payload = this.numCorrect
+      this.$store.commit(MutationTypes.SET_CORRECT_ANSWERS, payload)
+    },
+
     shuffledAnswers () {
       this.shuffledAnswers = shuffle(this.answers)
+    },
+    selectAnswer (i) {
+      this.selectedIndex = i
+    },
+    handleSubmit () {
+      let isCorrect = false
+
+      if (this.selectedIndex === this.correctIndex) {
+        isCorrect = true
+      }
+      if (isCorrect) {
+        this.numCorrect++
+      }
+      this.answered = true
+    },
+    answerClass (index) {
+      let answerClass = ''
+
+      if (!this.answered && this.selectedIndex === index) {
+        answerClass = 'selected'
+      } else if (this.answered && this.correctIndex === index) {
+        answerClass = 'correct'
+      } else if (this.answered &&
+        this.selectedIndex === index &&
+        this.correctIndex !== index
+      ) {
+        answerClass = 'incorrect'
+      }
+
+      return answerClass
     }
   }
 })
@@ -113,5 +155,17 @@ export default Vue.extend({
 }
 .v-card__text, .v-card__title {
   word-break: normal;
+}
+
+.selected {
+  background-color: #001229;
+}
+
+.correct {
+  background-color: lightgreen;
+}
+
+.incorrect {
+  background-color: red;
 }
 </style>

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueTypedJs from 'vue-typed-js'
+
 import App from './App.vue'
 import router from './router'
 import './assets/sass/index.sass'

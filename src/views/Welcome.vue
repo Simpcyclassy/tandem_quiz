@@ -22,7 +22,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { MutationTypes } from '../store/mutation-types'
+import { MutationTypes } from '@/store/mutation-types'
 
 export default Vue.extend({
   name: 'Welcome',
