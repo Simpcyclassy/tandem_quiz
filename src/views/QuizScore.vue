@@ -31,7 +31,12 @@
             <h1 class="display-2 font-weight-bold mb-3">
                 You scored: {{ getCorrectAnswerCount }}/{{ getQuizCount }}
             </h1>
-            <v-btn class="ma-2" rounded color="white" to="/quiz" @click="resetState">
+            <v-btn
+              class="ma-2"
+              rounded color="white"
+              to="/quiz"
+              @click="resetState"
+            >
                 Play again
             </v-btn>
         </v-col>
@@ -47,17 +52,16 @@ import { MutationTypes } from '@/store/mutation-types'
 export default Vue.extend({
   name: 'QuizScore',
 
-  data: () => ({
-  }),
   computed: {
     ...mapGetters([
       'getCorrectAnswerCount',
       'getQuizCount'
     ])
   },
+
   methods: {
     resetState () {
-      this.$store.commit(MutationTypes.RESET_STATE, 0)
+      this.$store.dispatch(MutationTypes.RESET_STATE, 0)
     }
   }
 })

@@ -5,9 +5,9 @@ export type quizType = { question: string; incorrect: string[]; correct: string 
 export const quizSet: quizType = []
 
 for (let n = 1; n <= 10; ++n) {
-  const i = Math.floor((Math.random() * (quiz.length)))
+  const i = Math.floor(Math.random() * (quiz.length))
   quizSet.push(quiz[i])
-  quiz[i] = quiz[quiz.length - n]
+  quiz.splice(i, 1)
 }
 
 export const state = {

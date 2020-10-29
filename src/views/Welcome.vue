@@ -12,7 +12,13 @@
             >
                 <h1 class="display-2 font-weight-bold mb-3"><span class="typing"></span></h1>
             </vue-typed-js>
-            <v-btn class="ma-2" rounded color="white" to="/quiz" @click="resetState">
+            <v-btn
+                class="ma-2"
+                rounded
+                color="white"
+                to="/quiz"
+                @click="resetState"
+            >
                 Click to Start
             </v-btn>
         </v-col>
@@ -27,8 +33,6 @@ import { MutationTypes } from '@/store/mutation-types'
 export default Vue.extend({
   name: 'Welcome',
 
-  data: () => ({
-  }),
   methods: {
     resetState () {
       this.$store.commit(MutationTypes.RESET_STATE, 0)

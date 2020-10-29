@@ -27,12 +27,13 @@ import { MutationTypes } from '@/store/mutation-types'
 export default Vue.extend({
   name: 'Header',
 
-  data: () => ({
-  }),
   methods: {
     resetState () {
       this.$store.commit(MutationTypes.RESET_STATE, 0)
     }
+  },
+  mounted () {
+    console.log(this.$store.dispatch)
   }
 })
 </script>

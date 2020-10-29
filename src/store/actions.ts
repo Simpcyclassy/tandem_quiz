@@ -27,9 +27,6 @@ export const actions: ActionTree<State, State> & Actions = {
       }, 500)
     })
   },
-  [ActionTypes.GET_CORRECT_ANSWER_COUNT] ({ commit }, payload: number) {
-    commit(MutationTypes.SET_CORRECT_ANSWERS, payload)
-  },
   [ActionTypes.RESET_STATE] ({ commit }, payload: number) {
     commit(MutationTypes.RESET_STATE, payload)
   }
