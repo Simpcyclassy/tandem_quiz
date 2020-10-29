@@ -4,8 +4,8 @@
         <v-col class="text-center" cols="12" sm="6">
             <vue-typed-js
                 :strings="[
-                    'Hi! My name is Chioma',
-                    'Welcome to my Software Engineer Code Challenge'
+                    'Hi! Ready to be a trivia champion?',
+                    'Welcome to my trivia challenge'
                 ]"
                 :typeSpeed="100"
                 :backSpeed="50"

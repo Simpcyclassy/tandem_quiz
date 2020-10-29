@@ -15,6 +15,15 @@
               alt="Congratulations Image"
               class="shrink mr-2"
               contain
+              v-else-if="getCorrectAnswerCount == 5 || getCorrectAnswerCount == 6 "
+              src="../assets/images/satisfactory.png"
+              transition="scale-transition"
+              height= "300px"
+            />
+            <v-img
+              alt="Congratulations Image"
+              class="shrink mr-2"
+              contain
               v-else
               src="../assets/images/congratulations.png"
               transition="scale-transition"

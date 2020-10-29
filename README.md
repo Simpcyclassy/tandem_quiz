@@ -1,6 +1,6 @@
 # Tandem Code Challenge
 
-A quiz application built with [Vue 2.6](https://vuejs.org/) JavaScript framework on [Vuetify 2.2](https://vuetifyjs.com/en/) material design framework and [Vuex 3.4](https://vuex.vuejs.org/) for state management.
+A quiz application built with [TypeScript 3.9](https://www.typescriptlang.org/) and [Vue 2.6](https://vuejs.org/) JavaScript framework on [Vuetify 2.2](https://vuetifyjs.com/en/) material design framework and [Vuex 3.4](https://vuex.vuejs.org/) for state management.
 
 ## Project setup
 ```
