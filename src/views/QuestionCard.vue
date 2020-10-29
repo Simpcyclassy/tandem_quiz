@@ -19,15 +19,12 @@
     </v-img>
 
     <v-list shaped>
-      <v-list-item-group
-        color="primary"
-      >
+      <v-list-item-group v-model="selectedIndex">
         <v-list-item
           v-for="(answer, i) in shuffledAnswers"
           :key="i"
           @click.prevent="selectAnswer(i)"
           :class="answerClass(i)"
-          color="#001229"
         >
           <v-list-item-content class="pl-12">
             <v-list-item-title v-text="answer"></v-list-item-title>

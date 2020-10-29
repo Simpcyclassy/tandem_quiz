@@ -34,3 +34,9 @@ npm run lint
 - Questions with their multiple choice options must be displayed one at a time. Questions should not repeat in a round.
 - A user can select only 1 answer out of the 4 possible answers.
 - The correct answer must be revealed after a user has submitted their answer A user can see the score they received at the end of the round
+
+![alt text](https://github.com/Simpcyclassy/tandem_quiz/blob/main/src/assets/images/app-demo-1.png?raw=true)
+![alt text](https://github.com/Simpcyclassy/tandem_quiz/blob/main/src/assets/images/app-demo-2.png?raw=true)
+![alt text](https://github.com/Simpcyclassy/tandem_quiz/blob/main/src/assets/images/app-demo-3.png?raw=true)
+![alt text](https://github.com/Simpcyclassy/tandem_quiz/blob/main/src/assets/images/app-demo-4.png?raw=true)
+![alt text](https://github.com/Simpcyclassy/tandem_quiz/blob/main/src/assets/images/app-demo-5.png?raw=true)
