@@ -13,10 +13,11 @@
     "sourceMap": true,
     "allowJs": true,
     "noImplicitAny": false,
-    "baseUrl": ".",
     "resolveJsonModule":true,
+    "baseUrl": ".",
     "types": [
       "webpack-env",
+      "jest",
       "vuetify"
     ],
     "paths": {
