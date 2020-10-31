@@ -34,7 +34,6 @@
             <v-btn
               class="ma-2"
               rounded color="white"
-              to="/quiz"
               @click="resetQuiz"
             >
               Play again
@@ -60,7 +59,7 @@ export default Vue.extend({
 
   methods: {
     resetQuiz () {
-      window.location.reload()
+      window.location.assign('/quiz')
     }
   }
 })

@@ -11,7 +11,7 @@ describe('App.vue', () => {
     vuetify = new Vuetify()
   })
 
-  it(`check if child component Header exists`, () => {
+  it('tests if child component Header exists', () => {
     const wrapper = shallowMount(App, {
       localVue,
       mocks: {
@@ -21,7 +21,7 @@ describe('App.vue', () => {
           }
         }
       },
-      vuetify: new Vuetify(),
+      vuetify: new Vuetify()
     })
     expect(wrapper.findComponent(Header).exists()).toBe(true)
   })
