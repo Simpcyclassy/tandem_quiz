@@ -35,7 +35,7 @@
     <v-row align="center" justify="center">
       <v-col class="text-center" cols="12" sm="6">
         <v-btn
-          class="ma-2"
+          class="ma-2 submit-answer"
           rounded
           color="green"
           to="/quiz"
@@ -128,7 +128,7 @@ export default Vue.extend({
       this.correctIndex = this.shuffledAnswers.indexOf(this.currentQuestion.correct)
     },
 
-    setCurrentQuestion () {
+    getCurrentQuestion () {
       this.currentQuestion = this.getAllQuiz[this.index]
     },
 
@@ -153,7 +153,7 @@ export default Vue.extend({
     index: {
       immediate: true,
       handler () {
-        this.setCurrentQuestion()
+        this.getCurrentQuestion()
         this.selectedIndex = null
         this.answered = false
         this.shuffleAnswers()

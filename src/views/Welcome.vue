@@ -16,8 +16,7 @@
                 class="ma-2"
                 rounded
                 color="white"
-                to="/quiz"
-                @click.native="resetQuiz()"
+                @click="resetQuiz()"
             >
                 Click to Start
             </v-btn>
@@ -34,7 +33,7 @@ export default Vue.extend({
 
   methods: {
     resetQuiz () {
-      window.location.reload()
+      window.location.assign('/quiz')
     }
   }
 })

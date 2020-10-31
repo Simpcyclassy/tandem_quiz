@@ -7,25 +7,23 @@ describe('Header.vue', () => {
   let vuetify
 
   beforeEach(() => {
-    vuetify = new Vuetify()    
+    vuetify = new Vuetify()
   })
 
   const wrapper = shallowMount(Header, {
     localVue,
-    vuetify,
+    vuetify
   })
 
-  it(`is a vue instance and match snapshot`, () => {
-
+  it('is a vue instance and match snapshot', () => {
     expect(wrapper.html()).toMatchSnapshot()
     expect(wrapper.exists()).toBeTruthy()
   })
 
   it('should render v-btn as anchor tag that opens the root path', () => {
-
     const button = wrapper.findComponent({ name: 'v-btn' })
-    expect(button.exists()).toBe(true);
-  
+    expect(button.exists()).toBe(true)
+
     expect(button.attributes('to')).toBe('/')
-  });
+  })
 })
