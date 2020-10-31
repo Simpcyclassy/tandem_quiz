@@ -21,7 +21,11 @@ describe('Header.vue', () => {
     expect(wrapper.exists()).toBeTruthy()
   })
 
-  it(`should find v-btn`, () => {
-    expect(wrapper.findComponent({ name: 'v-btn' }).exists()).toBe(true);
-  })
+  it('should render v-btn as anchor tag that opens the root path', () => {
+
+    const button = wrapper.findComponent({ name: 'v-btn' })
+    expect(button.exists()).toBe(true);
+  
+    expect(button.attributes('to')).toBe('/')
+  });
 })

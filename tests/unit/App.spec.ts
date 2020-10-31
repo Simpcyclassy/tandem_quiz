@@ -3,7 +3,7 @@ import App from '@/App.vue'
 import Vuetify from 'vuetify'
 import Header from '@/components/Header.vue'
 
-describe('Header.vue', () => {
+describe('App.vue', () => {
   const localVue = createLocalVue()
   let vuetify
 
@@ -11,7 +11,7 @@ describe('Header.vue', () => {
     vuetify = new Vuetify()
   })
 
-  it(`check if child Header exists`, () => {
+  it(`check if child component Header exists`, () => {
     const wrapper = shallowMount(App, {
       localVue,
       mocks: {
