@@ -17,7 +17,7 @@
                 rounded
                 color="white"
                 to="/quiz"
-                @click="resetQuiz"
+                @click.native="resetQuiz()"
             >
                 Click to Start
             </v-btn>

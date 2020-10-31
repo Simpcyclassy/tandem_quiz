@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header.vue is a vue instance and match snapshot 1`] = `
+<v-row-stub tag="div" class="header-container">
+  <div class="d-flex">
+    <v-btn-stub tag="button" activeclass="" to="/" icon="true" type="button" id="no-background-hover">
+      <v-img-stub width="170" alt="Tandem Logo" contain="true" options="[object Object]" position="center center" src="../assets/images/logo.png" transition="scale-transition" class="shrink mr-2"></v-img-stub>
+    </v-btn-stub>
+  </div>
+</v-row-stub>
+`;

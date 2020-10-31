@@ -1,10 +1,27 @@
-import { mount, shallowMount } from '@vue/test-utils'
+import { createLocalVue, shallowMount } from '@vue/test-utils'
 import Header from '@/components/Header.vue'
+import Vuetify from 'vuetify'
 
 describe('Header.vue', () => {
-  it('should test Header Component Exists', () => {
-    const wrapper = mount(Header)
+  const localVue = createLocalVue()
+  let vuetify
 
-    expect(wrapper.name()).toBe('Header')
+  beforeEach(() => {
+    vuetify = new Vuetify()    
+  })
+
+  const wrapper = shallowMount(Header, {
+    localVue,
+    vuetify,
+  })
+
+  it(`is a vue instance and match snapshot`, () => {
+
+    expect(wrapper.html()).toMatchSnapshot()
+    expect(wrapper.exists()).toBeTruthy()
+  })
+
+  it(`should find v-btn`, () => {
+    expect(wrapper.findComponent({ name: 'v-btn' }).exists()).toBe(true);
   })
 })

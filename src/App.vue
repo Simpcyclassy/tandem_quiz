@@ -20,9 +20,6 @@ export default Vue.extend({
     Header
   },
 
-  data: () => ({
-    //
-  }),
   computed: {
     theme () {
       return (this.$vuetify.theme.dark) ? 'dark' : 'light'
