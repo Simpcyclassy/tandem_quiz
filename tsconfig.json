@@ -18,7 +18,8 @@
     "types": [
       "webpack-env",
       "jest",
-      "vuetify"
+      "vuetify",
+      "node"
     ],
     "paths": {
       "@/*": [
@@ -37,7 +38,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx", "QuestionCard.spec.ts", "Welcome.spec.ts"
+    "tests/**/*.tsx", "QuestionCard.spec.ts", "tests/unit/Welcome.spec.ts", "tests/unit/QuizScore.spec.ts"
   ],
   "exclude": [
     "node_modules"

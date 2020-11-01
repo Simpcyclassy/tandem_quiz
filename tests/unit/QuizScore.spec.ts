@@ -1,10 +1,15 @@
 import { createLocalVue, mount } from '@vue/test-utils'
-import Welcome from '@/views/Welcome.vue'
+import QuizScore from '@/views/QuizScore.vue'
 import Vuetify from 'vuetify'
 import router from '../../src/router'
+import storeConfig from '../store'
+import { cloneDeep } from 'lodash'
+import Vuex from 'vuex'
 
 describe('Welcome.vue', () => {
   const localVue = createLocalVue()
+  localVue.use(Vuex)
+
   let vuetify
 
   const { location } = window
@@ -24,22 +29,28 @@ describe('Welcome.vue', () => {
     vuetify = new Vuetify({})
   })
 
-  const wrapper = mount(Welcome, {
+  const store = new Vuex.Store(cloneDeep(storeConfig))
+
+  const wrapper = mount(QuizScore, {
     localVue,
     vuetify,
-    router
+    router,
+    store
   })
 
-  it('should trigger when the start button is clicked', () => {
+  it('should emit event when the play again button is clicked', () => {
     const event = window.location.assign = jest.fn()
 
     const button = wrapper.findComponent({ name: 'v-btn' })
     expect(button.exists()).toBe(true)
 
-    expect(button.text()).toBe('Click to Start')
+    expect(button.text()).toBe('Play again')
 
     button.trigger('click')
     expect(event).toHaveBeenCalled()
     expect(event).toBeCalledWith('/quiz')
+  })
+  it('should have 10 questions in a round of trivia', () => {
+    expect(store.getters.getQuizCount).toBe(10)
   })
 })
