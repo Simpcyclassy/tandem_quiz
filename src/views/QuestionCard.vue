@@ -49,6 +49,7 @@
           class="ma-2"
           rounded color="secondary"
           to="/score"
+          id="submit-button"
           @click="setCorrectAnswers"
         >
           Finish
@@ -57,7 +58,6 @@
           class="ma-2"
           v-else
           rounded
-          to="/quiz"
           @click="next"
         >
           Next
