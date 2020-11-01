@@ -85,7 +85,7 @@ export default Vue.extend({
     answered: false,
     selectedIndex: null as (null | number),
     correctIndex: null as (null | number),
-    shuffledAnswers: [],
+    shuffledAnswers: [] as Array<string>,
     index: 0,
     numCorrect: 0,
     currentQuestion: {} as QuizObject
