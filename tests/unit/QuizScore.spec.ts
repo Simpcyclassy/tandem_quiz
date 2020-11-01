@@ -2,7 +2,7 @@ import { createLocalVue, mount } from '@vue/test-utils'
 import QuizScore from '@/views/QuizScore.vue'
 import Vuetify from 'vuetify'
 import router from '../../src/router'
-import storeConfig from '../store-config'
+import storeConfig from '../store'
 import { cloneDeep } from 'lodash'
 import Vuex from 'vuex'
 
@@ -49,5 +49,8 @@ describe('Welcome.vue', () => {
     button.trigger('click')
     expect(event).toHaveBeenCalled()
     expect(event).toBeCalledWith('/quiz')
+  })
+  it('should have 10 questions in a round of trivia', () => {
+    expect(store.getters.getQuizCount).toBe(10)
   })
 })
