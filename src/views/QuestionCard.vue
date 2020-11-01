@@ -70,7 +70,7 @@
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
 import { shuffle } from 'lodash'
-import { MutationTypes } from '@/store/mutation-types'
+import { MutationTypes } from '../store/mutation-types'
 
 interface QuizObject {
   correct: string;

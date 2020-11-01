@@ -53,4 +53,9 @@ describe('Welcome.vue', () => {
   it('should have 10 questions in a round of trivia', () => {
     expect(store.getters.getQuizCount).toBe(10)
   })
+  it('shows user the score they received at the end of the round', () => {
+    store.commit('setCorrectAnswer', 8)
+    expect(store.getters.getCorrectAnswerCount).toBe(8)
+  })
+
 })
