@@ -29,7 +29,7 @@ npm run lint
 
 
 ### [Link to Trivia](https://tandem-quiz.web.app/)
-```
+
 
 ## Assumptions
 - A round of trivia has 10 Questions
