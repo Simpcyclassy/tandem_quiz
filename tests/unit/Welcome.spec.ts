@@ -7,6 +7,17 @@ describe('Welcome.vue', () => {
   const localVue = createLocalVue()
   let vuetify
 
+  const { location } = window;
+
+  beforeAll(() => {
+    delete global.window.location;
+    window.location = { ...window.location, assign: jest.fn() };
+  });
+
+  afterAll(() => {
+    window.location = location;
+  });
+
   beforeEach(() => {
     vuetify = new Vuetify({})
   })
@@ -18,17 +29,15 @@ describe('Welcome.vue', () => {
   })
 
   it('should trigger when the start button is clicked', () => {
-    const event = jest.fn();
+    const event = window.location.assign = jest.fn();
 
     const button = wrapper.findComponent({ name: 'v-btn' })
     expect(button.exists()).toBe(true)
 
     expect(button.text()).toBe('Click to Start')
 
-    button.vm.$on('click', event)
-    expect(event).not.toHaveBeenCalled()
-
     button.trigger('click')
-    expect(event).toHaveBeenCalledTimes(1)
+    expect(event).toHaveBeenCalled()
+    expect(event).toBeCalledWith('/quiz');
   })
 })
